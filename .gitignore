@@ -1,0 +1,14 @@
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Backend (Java/Maven)
+backend/target/
+backend/*.jar
+backend/*.war
+
+# Frontend (Node/React)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
