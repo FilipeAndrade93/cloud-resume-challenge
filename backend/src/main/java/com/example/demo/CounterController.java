@@ -13,11 +13,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 @CrossOrigin(origins = "http://localhost:5173")
 public class CounterController {
 
-    //An AtomicInteger can handle multiple visitors at once, where simple int can lose track. Makes it thread-safe.
-    private final AtomicInteger mockCounter = new AtomicInteger((0));
+    private final DynamoDBService dynamoDBService;
+
+    public CounterController(DynamoDBService dynamoDBService) {
+        this.dynamoDBService = dynamoDBService;
+    }
 
     @GetMapping("/count")
     public Map<String, Integer> getCount() {
-        return Map.of("count", mockCounter.incrementAndGet());
+        return Map.of("count", dynamoDBService.getAndIncrementCount());
     }
 }
