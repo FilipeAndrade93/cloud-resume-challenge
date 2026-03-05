@@ -34,7 +34,7 @@ const Contacts: React.FC = () => {
   return (
     <div className="contacts">
       <h2 className="contacts__heading">
-        Contacts<span className="contacts__dot">.</span>
+        Contact Info<span className="contacts__dot">.</span>
       </h2>
       <p className="contacts__subheading">
         I'm always open to discussing new opportunities or projects.

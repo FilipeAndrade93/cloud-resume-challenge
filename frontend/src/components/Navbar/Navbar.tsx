@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Other Activities", href: "#other-activities" },
-  { label: "Contacts", href: "#contacts" },
+  { label: "Contact", href: "#contacts" },
 ];
 
 const Navbar: React.FC = () => {
