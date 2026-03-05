@@ -1,0 +1,99 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: v.$z-nav;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.4rem 4rem;
+
+  // Fully transparent by default
+  background: transparent;
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease,
+    backdrop-filter 0.3s ease;
+
+  // Subtle frosted glass when scrolled
+  &--scrolled {
+    background: rgba(13, 17, 23, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.navbar__logo {
+  font-family: v.$font-header;
+  font-size: 1rem;
+  font-weight: 700;
+  color: v.$text-white;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  font-family: v.$font-body;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  position: relative;
+  transition: color 0.2s ease;
+
+  // Underline slide-in on hover
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: v.$accent-orange;
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    color: v.$text-white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+@include m.mobile-only {
+  .navbar {
+    padding: 1rem 1.5rem;
+
+    &--scrolled {
+      padding: 0.8rem 1.5rem;
+    }
+  }
+
+  .navbar__links {
+    gap: 1rem;
+  }
+
+  .navbar__link {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,43 @@
+// 1. Brand Colors (Keep your existing ones)
+$bg-dark: #0d1117;
+$bg-card-bg: #131820;
+$accent-orange: #ff7b54;
+$text-white: #ffffff;
+$text-gray: #8b949e;
+$card-bg: #161b22;
+
+// 2. Responsive Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+
+// 3. Spacing Scale (Based on 8px grid)
+$space-xs: 0.5rem; // 8px
+$space-sm: 1rem; // 16px
+$space-md: 2rem; // 32px
+$space-lg: 4rem; // 64px
+$space-xl: 8rem; // 128px
+
+// 4. Typography
+$font-header: "Space Grotesque", sans-serif;
+$font-body: "Inter", sans-serif;
+
+// 5. Font Weights
+$weight-light: 300;
+$weight-regular: 400;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// 6. Typography Sizes (Using rem for accessibility)
+$font-size-base: 1rem;
+$font-size-h1: clamp(2.5rem, 8vw, 5rem); // Fluid h1
+$font-size-h2: clamp(1.8rem, 5vw, 2.5rem);
+$font-size-body: 1.1rem;
+
+// 7. Z-Index Scale
+$z-back: -10;
+$z-ground: 1;
+$z-circle: 10;
+$z-photo: 20;
+$z-nav: 100;

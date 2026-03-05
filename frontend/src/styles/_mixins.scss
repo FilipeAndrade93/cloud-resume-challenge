@@ -1,0 +1,25 @@
+@use "variables" as v;
+
+@mixin mobile-only {
+  @media (max-width: #{v.$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{v.$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{v.$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

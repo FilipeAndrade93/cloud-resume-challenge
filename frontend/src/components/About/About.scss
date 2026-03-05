@@ -1,0 +1,147 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.about {
+  width: 100%;
+  background-color: v.$bg-dark;
+  padding: 8rem 0;
+}
+
+.about__container {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+
+  @include m.mobile-only {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+// ── Left: Pillars ───────────────────────────────────────────
+.about__pillars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  // Vertical line running through all dots
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      v.$accent-orange 20%,
+      v.$accent-orange 80%,
+      transparent
+    );
+  }
+}
+
+.about__pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.8rem 0 1.8rem 0;
+  position: relative;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.about__pillar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: v.$accent-orange;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  margin-left: -4.5px; // center on the vertical line
+  box-shadow: 0 0 8px rgba(255, 123, 84, 0.6);
+}
+
+.about__pillar-body {
+  padding-left: 1rem;
+}
+
+.about__pillar-title {
+  font-family: v.$font-header;
+  font-size: 1rem;
+  font-weight: 700;
+  color: v.$text-white;
+  margin: 0 0 0.4rem;
+}
+
+.about__pillar-desc {
+  font-family: v.$font-body;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: v.$text-gray;
+  margin: 0;
+}
+
+// ── Right: Content ──────────────────────────────────────────
+.about__content {
+  flex: 1.2;
+}
+
+.about__heading {
+  font-family: v.$font-header;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 1.8rem;
+  color: v.$text-white;
+}
+
+.about__dot {
+  color: v.$accent-orange;
+}
+
+.about__bio {
+  font-family: v.$font-body;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  line-height: 1.8;
+  color: v.$text-gray;
+  margin: 0 0 3rem;
+}
+
+// ── Stats ───────────────────────────────────────────────────
+.about__stats {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.about__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about__stat-number {
+  font-family: v.$font-header;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: v.$text-white;
+  line-height: 1;
+}
+
+.about__stat-suffix {
+  color: v.$accent-orange;
+  margin-left: 0.1rem;
+}
+
+.about__stat-label {
+  font-family: v.$font-body;
+  font-size: 0.8rem;
+  color: v.$text-gray;
+  line-height: 1.4;
+  white-space: pre-line; // respects \n in the label strings
+}

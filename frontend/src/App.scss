@@ -1,0 +1,80 @@
+@use "./styles/variables" as v;
+@use "./styles/mixins" as m;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app-root {
+  min-height: 100%;
+  overflow-y: visible;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: v.$bg-dark;
+  color: v.$text-white;
+  font-family: v.$font-body;
+  overflow-x: hidden;
+}
+
+// THE GLOBAL SHELL
+.container {
+  width: 100%;
+  max-width: 92vw;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include m.tablet-up {
+    padding: 0; // Let the 92vw handle the spacing on desktop
+  }
+}
+
+// Reusable Section Styles
+section {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
+  .container {
+    flex: 1;
+  }
+}
+
+// BUTTONS
+.btn {
+  padding: 1rem 2rem;
+  font-family: v.$font-header;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+
+  &--primary {
+    background-color: v.$accent-orange;
+    color: v.$bg-dark;
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border: 1px solid v.$accent-orange;
+    color: v.$text-white;
+  }
+}
