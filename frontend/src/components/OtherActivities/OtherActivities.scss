@@ -1,0 +1,138 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.other {
+  padding: 4rem 0;
+}
+
+.other__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 6rem;
+
+  @include m.mobile-only {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+// ── Left: Content ───────────────────────────────────────────
+.other__content {
+  flex: 1;
+}
+
+.other__heading {
+  font-family: v.$font-header;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: v.$text-white;
+  margin: 0 0 2.5rem;
+}
+
+.other__dot {
+  color: v.$accent-orange;
+}
+
+.other__entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.other__entry-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.other__role {
+  font-family: v.$font-header;
+  font-size: 1rem;
+  font-weight: 700;
+  color: v.$accent-orange;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.other__meta {
+  font-family: v.$font-body;
+  font-size: 0.82rem;
+  color: v.$text-gray;
+  font-style: italic;
+}
+
+.other__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  li {
+    font-family: v.$font-body;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: v.$text-gray;
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: v.$accent-orange;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    strong {
+      color: v.$text-white;
+      font-weight: 600;
+    }
+
+    em {
+      color: v.$text-white;
+      font-style: italic;
+    }
+  }
+}
+
+.other__link {
+  color: v.$accent-orange;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 123, 84, 0.4);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-bottom-color: v.$accent-orange;
+  }
+}
+
+// ── Right: Photo ────────────────────────────────────────────
+.other__photo-wrapper {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.other__photo-placeholder {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  filter: brightness(1.05);
+}
+
+.other__photo {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  filter: brightness(1.05);
+}

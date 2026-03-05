@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Skills from "./components/Skills/Skills";
+import OtherActivities from "./components/OtherActivities/OtherActivities";
 
 const App: React.FC = () => {
   return (
@@ -37,6 +38,11 @@ const App: React.FC = () => {
       <section className="skills-section" id="skills">
         <div className="container">
           <Skills />
+        </div>
+      </section>
+      <section className="other-activities-section" id="other-activities">
+        <div className="container">
+          <OtherActivities />
         </div>
       </section>
     </main>
