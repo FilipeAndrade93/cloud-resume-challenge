@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import TechStack from "./components/Techstack/Techstack";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
+import Experience from "./components/Experience/Experience";
 
 const App: React.FC = () => {
   return (
@@ -22,7 +23,9 @@ const App: React.FC = () => {
         </div>
       </section>
       <section className="experience-section" id="experience">
-        <div className="container"></div>
+        <div className="container">
+          <Experience />
+        </div>
       </section>
     </main>
   );

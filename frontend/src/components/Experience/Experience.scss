@@ -1,0 +1,257 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.experience {
+  padding: 8rem 0;
+}
+
+// ── Section Heading ─────────────────────────────────────────
+.experience__heading {
+  font-family: v.$font-header;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5rem;
+  color: v.$text-white;
+}
+
+.experience__dot {
+  color: v.$accent-orange;
+}
+
+// ── Timeline ────────────────────────────────────────────────
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience__entry {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+// ── Marker (dot + line) ─────────────────────────────────────
+.experience__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  padding-top: 0.3rem;
+}
+
+.experience__dot-outer {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid v.$accent-orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: v.$bg-dark;
+  box-shadow: 0 0 10px rgba(255, 123, 84, 0.4);
+}
+
+.experience__dot-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: v.$accent-orange;
+}
+
+.experience__line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    v.$accent-orange,
+    rgba(255, 123, 84, 0.15)
+  );
+  margin: 0.4rem 0;
+  min-height: 3rem;
+}
+
+// ── Entry Body ──────────────────────────────────────────────
+.experience__body {
+  flex: 1;
+  padding-bottom: 4rem;
+}
+
+.experience__company-row {
+  margin-bottom: 0.4rem;
+}
+
+.experience__company {
+  font-family: v.$font-header;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: v.$text-white;
+  margin: 0;
+}
+
+.experience__company-link {
+  display: block;
+  font-family: v.$font-header;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: v.$text-white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: v.$accent-orange;
+  }
+}
+
+.experience__location {
+  font-size: 0.8rem;
+  color: v.$text-gray;
+  font-style: italic;
+}
+
+// ── Role ────────────────────────────────────────────────────
+.experience__role {
+  margin-top: 1.2rem;
+}
+
+.experience__role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.experience__role-title {
+  font-family: v.$font-header;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: v.$accent-orange;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience__period {
+  font-size: 0.8rem;
+  color: v.$text-gray;
+  white-space: nowrap;
+}
+
+// ── Projects ────────────────────────────────────────────────
+.experience__projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+// ── Project Card ────────────────────────────────────────────
+.project-card {
+  background: v.$card-bg;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 3px solid rgba(255, 123, 84, 0.3);
+  overflow: hidden;
+  transition: border-left-color 0.2s ease;
+
+  &--open {
+    border-left-color: v.$accent-orange;
+  }
+}
+
+.project-card__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+
+  &:hover .project-card__title {
+    color: v.$text-white;
+  }
+}
+
+.project-card__title {
+  font-family: v.$font-header;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.project-card__chevron {
+  font-size: 1.2rem;
+  color: v.$accent-orange;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.project-card__body {
+  padding: 0 1.2rem 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  li {
+    font-family: v.$font-body;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: v.$text-gray;
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: v.$accent-orange;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+  }
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-card__tag {
+  font-family: v.$font-body;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  background: rgba(255, 123, 84, 0.1);
+  color: v.$accent-orange;
+  border: 1px solid rgba(255, 123, 84, 0.2);
+}
+
+// ── Mobile ──────────────────────────────────────────────────
+@include m.mobile-only {
+  .experience__role-header {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .experience__entry {
+    gap: 1rem;
+  }
+}

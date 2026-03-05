@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         <h2 className="hero-role">Fullstack Developer</h2>
 
         <div className="hero-actions">
-          <button className="btn btn--primary">View Experience</button>
+          <button className="btn btn--primary">Download CV</button>
           <button className="btn btn--secondary">Let's Talk</button>
         </div>
       </div>
