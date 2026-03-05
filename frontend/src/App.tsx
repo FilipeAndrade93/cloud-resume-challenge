@@ -5,6 +5,8 @@ import TechStack from "./components/Techstack/Techstack";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
+import Education from "./components/Education/Education";
+import Skills from "./components/Skills/Skills";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +27,16 @@ const App: React.FC = () => {
       <section className="experience-section" id="experience">
         <div className="container">
           <Experience />
+        </div>
+      </section>
+      <section className="education-section" id="education">
+        <div className="container">
+          <Education />
+        </div>
+      </section>
+      <section className="skills-section" id="skills">
+        <div className="container">
+          <Skills />
         </div>
       </section>
     </main>
