@@ -1,0 +1,178 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.contacts {
+  padding: 4rem 0 2rem;
+}
+
+.contacts__heading {
+  font-family: v.$font-header;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: v.$text-white;
+  margin: 0 0 1rem;
+}
+
+.contacts__dot {
+  color: v.$accent-orange;
+}
+
+.contacts__subheading {
+  font-family: v.$font-body;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: v.$text-gray;
+  margin: 0 0 3rem;
+}
+
+.contacts__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin-bottom: 3rem;
+}
+
+.contacts__item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.contacts__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: v.$card-bg;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: v.$accent-orange;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  .contacts__item:hover & {
+    background: rgba(255, 123, 84, 0.1);
+    border-color: rgba(255, 123, 84, 0.3);
+  }
+}
+
+.contacts__item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contacts__item-label {
+  font-family: v.$font-header;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: v.$text-gray;
+}
+
+.contacts__item-value {
+  font-family: v.$font-body;
+  font-size: 0.95rem;
+  color: v.$text-white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: v.$accent-orange;
+  }
+}
+
+.contacts__social {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding-top: 1rem;
+}
+
+.contacts__social-label {
+  font-family: v.$font-body;
+  font-size: 0.8rem;
+  color: v.$text-gray;
+  white-space: nowrap;
+}
+
+.contacts__social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.contacts__social-link {
+  font-family: v.$font-header;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: v.$accent-orange;
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    color: v.$text-white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.contacts__footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.contacts__footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 1.5rem;
+}
+
+.contacts__footer-text {
+  font-family: v.$font-body;
+  font-size: 0.78rem;
+  color: v.$text-gray;
+  opacity: 0.5;
+  margin-bottom: 0.4rem;
+}
+
+.contacts__footer-source {
+  font-family: v.$font-body;
+  font-size: 0.75rem;
+  color: v.$text-gray;
+  opacity: 0.4;
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+    color: v.$accent-orange;
+  }
+}

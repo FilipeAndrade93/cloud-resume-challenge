@@ -18,14 +18,12 @@
   }
 }
 
-// ── Left: Pillars ───────────────────────────────────────────
 .about__pillars {
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
 
-  // Vertical line running through all dots
   &::before {
     content: "";
     position: absolute;
@@ -86,7 +84,6 @@
   margin: 0;
 }
 
-// ── Right: Content ──────────────────────────────────────────
 .about__content {
   flex: 1.2;
 }
@@ -112,7 +109,6 @@
   margin: 0 0 3rem;
 }
 
-// ── Stats ───────────────────────────────────────────────────
 .about__stats {
   display: flex;
   gap: 3rem;
