@@ -5,12 +5,17 @@
   width: 100%;
   background-color: v.$bg-dark;
   padding: 8rem 0;
+
+  @include m.mobile-only {
+    padding: 5rem 0;
+  }
 }
 
 .about__container {
   display: flex;
   align-items: center;
   gap: 6rem;
+  width: 100%;
 
   @include m.mobile-only {
     flex-direction: column;
@@ -23,6 +28,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 0; // prevent flex children from overflowing
 
   &::before {
     content: "";
@@ -45,7 +51,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  padding: 1.8rem 0 1.8rem 0;
+  padding: 1.8rem 0;
   position: relative;
 
   &:not(:last-child) {
@@ -60,7 +66,7 @@
   background: v.$accent-orange;
   flex-shrink: 0;
   margin-top: 0.3rem;
-  margin-left: -4.5px; // center on the vertical line
+  margin-left: -4.5px;
   box-shadow: 0 0 8px rgba(255, 123, 84, 0.6);
 }
 
@@ -86,6 +92,7 @@
 
 .about__content {
   flex: 1.2;
+  min-width: 0; // prevent flex children from overflowing
 }
 
 .about__heading {
@@ -111,7 +118,7 @@
 
 .about__stats {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
@@ -139,5 +146,5 @@
   font-size: 0.8rem;
   color: v.$text-gray;
   line-height: 1.4;
-  white-space: pre-line; // respects \n in the label strings
+  white-space: pre-line;
 }

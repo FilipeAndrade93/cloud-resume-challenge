@@ -6,110 +6,174 @@
   display: flex;
   width: 100%;
   height: 100%;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0;
 
   @include m.tablet-up {
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch; // both children sit at the bottom
-    padding: 0;
-    gap: 0;
+    align-items: stretch;
+  }
+
+  @include m.mobile-only {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
   }
 }
 
 .hero-text {
-  flex: 1;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 0;
+
+  @include m.tablet-up {
+    flex: 1;
+    padding: 0 0 3rem 4rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @include m.mobile-only {
+    flex: 0 0 auto;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 2rem 0; // no bottom padding — visual sits immediately below
+  }
 
   .hero-name {
     font-family: v.$font-header;
-    font-size: clamp(3.5rem, 8vw, 7rem);
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: -0.04em;
     margin: 0;
     color: v.$text-white;
+
+    @include m.tablet-up {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+    }
+
+    @include m.mobile-only {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+    }
   }
 
   .hero-role {
-    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-    color: v.$accent-orange;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    margin: 1.2rem 0 3rem 0;
+    color: v.$accent-orange;
+
+    @include m.tablet-up {
+      font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+      margin: 1.2rem 0 3rem;
+    }
+
+    @include m.mobile-only {
+      font-size: clamp(0.6rem, 2vw, 0.8rem);
+      margin: 0.8rem 0 1.5rem; // reduced bottom margin
+    }
   }
 
   .hero-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+
+    @include m.mobile-only {
+      justify-content: center;
+    }
   }
 }
 
-// Right side
 .hero-visual {
-  flex: 1;
   position: relative;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 88vh;
   overflow: visible;
 
-  .hero-aura {
-    position: absolute;
-    bottom: -10%;
-    right: -10%;
-    transform: translateX(50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      ellipse at 50% 50%,
-      rgba(255, 123, 84, 0.35) 0%,
-      rgba(255, 123, 84, 0.12) 45%,
-      transparent 72%
-    );
-    filter: blur(48px);
-    z-index: 1;
-    border-radius: 50%;
-    animation: aura-pulse 4s ease-in-out infinite alternate;
+  @include m.tablet-up {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 88vh;
   }
 
-  .hero-image {
-    position: relative;
-    z-index: 2;
+  @include m.mobile-only {
+    flex: 1 1 0;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 0;
+  }
+}
+
+.hero-aura {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+
+  // Desktop: lower and slightly more right to center behind image body
+  @include m.tablet-up {
+    bottom: 5%;
+    right: 0;
+    width: 70%;
+    height: 65%;
+    transform: translateX(-5%);
+  }
+
+  // Mobile: centered, lower behind body
+  @include m.mobile-only {
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 45%;
+  }
+}
+
+.hero-aura__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 123, 84, 0.4) 0%,
+    rgba(255, 123, 84, 0.15) 45%,
+    transparent 72%
+  );
+  filter: blur(60px);
+  animation: aura-pulse 4s ease-in-out infinite alternate;
+
+  @include m.mobile-only {
+    filter: blur(40px);
+  }
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: brightness(1.5) contrast(1);
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 18%,
+    black 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 100%);
+
+  @include m.tablet-up {
     height: 88%;
     width: auto;
-    object-fit: contain;
-    object-position: bottom center;
-    display: block;
-    filter: brightness(1.5) contrast(1);
-    // Fade top edge into the background
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 18%,
-      black 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 18%,
-      black 100%
-    );
+  }
 
-    @include m.mobile-only {
-      height: 55vh;
-    }
+  @include m.mobile-only {
+    height: 100%;
+    width: auto;
+    max-width: 85%;
+    display: block;
   }
 }
 

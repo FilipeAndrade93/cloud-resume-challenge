@@ -6,14 +6,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-.app-root {
-  min-height: 100%;
-  overflow-y: visible;
-}
 
 html,
 body {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -23,19 +20,23 @@ body {
   overflow-x: hidden;
 }
 
-// THE GLOBAL SHELL
+.app-root {
+  min-height: 100%;
+}
+
+//Global Container
 .container {
   width: 100%;
   max-width: 92vw;
   margin: 0 auto;
-  padding: 0 1rem;
 
-  @include m.tablet-up {
-    padding: 0; // Let the 92vw handle the spacing on desktop
+  @include m.mobile-only {
+    max-width: 100%;
+    padding: 0 1.5rem;
   }
 }
 
-// Reusable Section Styles
+//Sections
 section {
   width: 100%;
   position: relative;
@@ -47,10 +48,15 @@ section {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: hidden; // contains aura bleed
 
   .container {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    // Hero manages its own internal padding
+    max-width: 100%;
+    padding: 0;
   }
 }
 
@@ -59,7 +65,7 @@ section {
   background-color: v.$card-bg;
 }
 
-// BUTTONS
+// Buttons
 .btn {
   padding: 1rem 2rem;
   font-family: v.$font-header;
@@ -71,15 +77,23 @@ section {
   cursor: pointer;
   border: none;
   transition: all 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
 
   &--primary {
     background-color: v.$accent-orange;
     color: v.$bg-dark;
+    text-decoration: none;
   }
 
   &--secondary {
     background-color: transparent;
     border: 1px solid v.$accent-orange;
     color: v.$text-white;
+  }
+
+  @include m.mobile-only {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.78rem;
   }
 }

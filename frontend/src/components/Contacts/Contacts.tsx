@@ -31,6 +31,17 @@ const socialLinks = [
 ];
 
 const Contacts: React.FC = () => {
+  const [visitors, setVisitors] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    fetch(import.meta.env.VITE_AWS_ENDPOINT)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Lambda response:", data);
+        setVisitors(data.count);
+      })
+      .catch((err) => console.error("Fetch error:", err));
+  }, []);
   return (
     <div className="contacts">
       <h2 className="contacts__heading">
@@ -92,6 +103,23 @@ const Contacts: React.FC = () => {
         >
           View Source Code
         </a>
+        {visitors !== null && (
+          <p className="contacts__footer-visitors">
+            <svg
+              className="contacts__footer-eye"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            {visitors.toLocaleString()} visitors
+          </p>
+        )}
       </div>
     </div>
   );

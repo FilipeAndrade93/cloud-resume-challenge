@@ -18,6 +18,7 @@
 
 .other__content {
   flex: 1;
+  min-width: 0;
 }
 
 .other__heading {
@@ -110,19 +111,15 @@
 
 .other__photo-wrapper {
   flex: 1.2;
+  min-width: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-}
 
-.other__photo-placeholder {
-  width: 100%;
-  max-width: 440px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  filter: brightness(1.05);
+  @include m.mobile-only {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .other__photo {
@@ -133,4 +130,9 @@
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   filter: brightness(1.05);
+
+  @include m.mobile-only {
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+  }
 }

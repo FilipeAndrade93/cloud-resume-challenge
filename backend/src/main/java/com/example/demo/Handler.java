@@ -16,7 +16,6 @@ public class Handler implements RequestHandler<APIGatewayProxyRequestEvent, APIG
         int newCount = dbService.getAndIncrementCount();
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
-                .withHeaders(Map.of("Access-Control-Allow-Origin", "*"))
                 .withBody("{\"count\": " + newCount + "}");
     }
 }

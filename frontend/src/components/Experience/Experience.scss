@@ -28,6 +28,10 @@
   display: flex;
   gap: 2rem;
   position: relative;
+
+  @include m.mobile-only {
+    gap: 1rem;
+  }
 }
 
 .experience__marker {
@@ -73,6 +77,7 @@
 
 .experience__body {
   flex: 1;
+  min-width: 0; // prevent overflow
   padding-bottom: 4rem;
 }
 
@@ -119,6 +124,11 @@
   margin-bottom: 1rem;
   gap: 1rem;
   flex-wrap: wrap;
+
+  @include m.mobile-only {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
 }
 
 .experience__role-title {
@@ -195,7 +205,7 @@
 .project-card__bullets {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 1rem;
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -235,15 +245,4 @@
   background: rgba(255, 123, 84, 0.1);
   color: v.$accent-orange;
   border: 1px solid rgba(255, 123, 84, 0.2);
-}
-
-@include m.mobile-only {
-  .experience__role-header {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .experience__entry {
-    gap: 1rem;
-  }
 }

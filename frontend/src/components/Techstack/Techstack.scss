@@ -12,12 +12,19 @@
   transform: translateX(-50%);
 
   padding: 3rem 4rem;
-  background-color: v.$bg-card-bg;
+  background-color: v.$card-bg; // was $bg-card-bg — doesn't exist
   box-shadow:
     0 -1px 0 0 rgba(255, 255, 255, 0.03),
     0 -8px 24px 0 rgba(0, 0, 0, 0.35);
 
   z-index: 2;
+
+  @include m.mobile-only {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
+  }
 }
 
 .tech-stack__item {
@@ -47,14 +54,5 @@
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-  }
-}
-
-@include m.mobile-only {
-  .tech-stack {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem 1.5rem;
-    padding: 1rem 1.5rem;
   }
 }
