@@ -1,4 +1,4 @@
-# Cloud Resume Challenge — Filipe Andrade
+# Cloud Resume Challenge - Filipe Andrade
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-filipe--andrade.com-orange?style=for-the-badge)](https://filipe-andrade.com)
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-blue?style=for-the-badge)](https://react.dev)
