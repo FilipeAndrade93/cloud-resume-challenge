@@ -10,7 +10,7 @@ const skills: SkillCategory[] = [
   {
     title: "Backend & Architecture",
     items: [
-      "Java 17",
+      "Java 17, 21",
       "Spring Boot 3.3",
       "Spring Data JPA",
       "Microservices",
@@ -39,6 +39,10 @@ const skills: SkillCategory[] = [
   {
     title: "Database",
     items: ["PostgreSQL", "MySQL"],
+  },
+  {
+    title: "Methodologies",
+    items: ["Spec-Driven Development", "OOP", "Agile"],
   },
   {
     title: "Languages",

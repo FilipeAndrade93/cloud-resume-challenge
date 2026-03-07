@@ -4,8 +4,8 @@ import "./About.scss";
 const stats = [
   { value: "5", suffix: "+", label: "Years of\nExperience" },
   { value: "2", suffix: "", label: "Core\nTech Stacks" },
-  { value: "100", suffix: "%", label: "Reliability\nFocused" },
   { value: "Portugal", suffix: "", label: "Location" },
+  { value: "Open to ", suffix: "work", label: "Status" },
 ];
 
 const pillars = [

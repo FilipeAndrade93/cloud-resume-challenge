@@ -22,13 +22,13 @@ interface ExperienceEntry {
 
 const experiences: ExperienceEntry[] = [
   {
-    company: "Zarph – Payment & Cash Solutions",
-    location: "Odivelas, Portugal",
+    company: "Zarph - Payment & Cash Solutions",
+    location: "Full-remote, Hybrid & Lisbon, Portugal",
     url: "https://www.zarph.com",
     roles: [
       {
         title: "Fullstack Software Engineer",
-        period: "Aug 2021 – Present",
+        period: "Aug 2021 - Present",
         projects: [
           {
             title: "Zarph Payment System V2",
@@ -47,9 +47,10 @@ const experiences: ExperienceEntry[] = [
             ],
           },
           {
-            title: "CTT Self-Service Shipping Kiosks",
+            title:
+              "CTT (Portuguese National Postal Service) Self-Service Shipping Kiosks",
             bullets: [
-              "Developed production postal kiosks delivering the full shipping lifecycle from package drop-off to label printing and invoice generation.",
+              "Developed production postal kiosks, delivering the full shipping lifecycle from package drop-off to label printing and invoice generation.",
               "Built a custom React/TypeScript component library from scratch with SCSS, including a full virtual keyboard with cursor tracking and diacritical support.",
               "Designed a complex 8-state payment processing machine and real-time validation forms integrated via Redux and React Context.",
             ],
@@ -68,7 +69,7 @@ const experiences: ExperienceEntry[] = [
       },
       {
         title: "Software Engineer Intern",
-        period: "May 2021 – Jul 2021",
+        period: "May 2021 - Jul 2021",
         projects: [
           {
             title: "Internship Projects",
@@ -88,17 +89,17 @@ const experiences: ExperienceEntry[] = [
     location: "Highlands, North Carolina, USA & Lisbon, Portugal",
     roles: [
       {
-        title: "Luxury Hospitality – Various Roles",
-        period: "Aug 2014 – Oct 2020",
+        title: "Luxury Hospitality - Various Roles",
+        period: "Aug 2014 - Oct 2020",
         projects: [
           {
             title:
-              "Four Seasons Ritz Lisbon, Old Edwards Inn & Spa, Pestana Palace & Corpo Santo",
+              "Four Seasons Ritz Lisbon, Old Edwards Inn & Spa, Pestana Palace Lisboa & Corpo Santo Hotel",
             bullets: [
               "Developed high-level stakeholder satisfaction and crisis-resolution skills within renowned 5-star organisations.",
               "Leveraged the discipline of luxury service environments to build a foundation for high-pressure systems engineering and client-first software delivery.",
             ],
-            tags: ["Leadership", "Client Relations", "Crisis Resolution"],
+            tags: ["Teamwork", "Client Relations", "Crisis Resolution"],
           },
         ],
       },
